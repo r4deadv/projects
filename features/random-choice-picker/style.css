@@ -56,6 +56,6 @@ textarea:focus {
 }
 
 .tag.highlight.winner {
-  font-size: 2em;
-  padding: 15px 40px;
+  font-size: 1.5em;
+  padding: 10px 30px;
 }

@@ -1,5 +1,6 @@
 const tagsEl = document.getElementById("tags");
 const textarea = document.getElementById("textarea");
+const result = document.getElementById("results");
 
 textarea.focus();
 
@@ -51,9 +52,9 @@ const randomSelect = () => {
       const randomTag = pickRandomTag();
 
       highlightTag(randomTag);
-      // setTimeout(() => {
-      //   randomTag.classList.add("winner");
-      // }, 300);
+      setTimeout(() => {
+        randomTag.classList.add("winner");
+      }, 300);
     }, 100);
   }, times * 100);
 };
