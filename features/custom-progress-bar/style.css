@@ -15,9 +15,6 @@ body {
   overflow: hidden;
   margin: 0;
 }
-h1 {
-  margin-bottom: 50px;
-}
 
 .progress {
   background-color: #d8d8d8;
@@ -39,5 +36,4 @@ h1 {
   height: 100%;
   width: 0;
   opacity: 0;
-  transition: width 1s ease;
 }

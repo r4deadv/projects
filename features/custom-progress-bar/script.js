@@ -1,10 +1,26 @@
-const progress = document.querySelector(".progress-done");
-let progressValue = progress.getAttribute("data-done");
+const progressBar = document.querySelector(".progress-done");
 
-progressValue = 85;
+let load = 0;
+let progressValue = 75;
 
-setTimeout(() => {
-  progress.style.width = progressValue + "%";
-  progress.style.opacity = 1;
-  progress.innerText = progressValue + "%";
-}, 500);
+let int = setInterval(loading, 30);
+
+function loading() {
+  load++;
+
+  progressBar.style.opacity = 1;
+  progressBar.style.width = `${load}%`;
+
+  if (load < 10) {
+    progressBar.innerText = "";
+  } else {
+    progressBar.innerText = `${load}%`;
+  }
+
+  if (load > 99) {
+    clearInterval(int);
+    progressBar.innerText = "Completed";
+  } else if (load === progressValue) {
+    clearInterval(int);
+  }
+}
