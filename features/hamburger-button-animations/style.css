@@ -17,3 +17,11 @@ body {
   display: flex;
   gap: clamp(2rem, 8vw, 4rem);
 }
+
+button {
+  background: transparent;
+  border: 10px solid var(--button-color, #000);
+  border-radius: 1rem;
+}
+
+/* button one */
