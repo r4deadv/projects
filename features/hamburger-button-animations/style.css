@@ -55,5 +55,8 @@ button {
   rotate: -45deg;
 }
 
-.button-one[aria-expended='true'] .top {
+/* button two */
+
+.button-two {
+  --button-color: #232;
 }
