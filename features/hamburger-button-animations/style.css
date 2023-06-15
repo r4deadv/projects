@@ -112,3 +112,9 @@ button {
     stroke-dashoffset: 0;
   }
 }
+
+/* button three */
+
+.button-three {
+  --button-color: black;
+}
