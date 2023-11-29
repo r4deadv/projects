@@ -18,5 +18,8 @@ footer {
 }
 
 .card {
-  background: pink;
+  grid-column: 2;
+  display: grid;
+  grid: auto-flow / 300px 1fr;
+  grid-gap: 1em;
 }
