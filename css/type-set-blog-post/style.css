@@ -1,5 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,700|Tajawal:400,700');
+
+:root {
+  --ff-s: 'EB Garamond', serif;
+  --ff-ss: 'Cormorant', sans-serif;
+
+  --fs-h1: calc(1rem + 6vw);
+  --fs-h2: calc(1em + 4vw);
+  --fs-h3: 1.5rem;
+  --fs-body: 1.1rem;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid: auto-flow / minmax(1em, 1fr) auto minmax(1em, 1fr);
+  margin: 0;
+  font-family: var(--ff-ss);
+  line-height: 1.7;
+  font-size: var(--fs-body);
+}
+
+* {
+  grid-column: 2 / -2;
+}
+
+img {
+  width: 100%;
+  max-height: 30vh;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+blockquote,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+blockquote {
+  font-family: var(--ff-s);
+}
+
+h1 {
+  background: black;
+  color: white;
+  grid-column: 1 / -1;
+  margin: 0 0 2em;
+  padding: 20vh 0;
+  text-align: center;
+  font-size: var(--fs-h1);
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+
+h2,
+h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p:first-of-type {
+  font-family: var(--ff-s);
+}
+
+p:first-of-type em {
+  display: block;
 }
