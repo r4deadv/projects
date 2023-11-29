@@ -33,5 +33,6 @@ footer {
 }
 .card__body {
   position: sticky;
-  top: 10em;
+  top: 12em;
+  align-self: start;
 }/*# sourceMappingURL=style.css.map */
