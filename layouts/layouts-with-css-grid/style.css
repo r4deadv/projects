@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid: auto-flow / minmax() minmax() minmax();
+}
+
+header,
+footer {
+  background: gray;
+  color: white;
+  padding: 2em;
+}
+
+.card {
+  background: pink;
+}
