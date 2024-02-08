@@ -47,8 +47,27 @@ nav {
 }
 
 .nav-list li.active {
+  view-transition-name: activeNavTab;
   background-color: var(--body-bg);
   position: relative;
+}
+
+/* easier with JS to add them */
+.nav-list li:nth-child(1) a {
+  view-transition-name: navLink-1;
+}
+
+.nav-list li:nth-child(2) a {
+  view-transition-name: navLink-2;
+}
+
+.nav-list li:nth-child(3) a {
+  view-transition-name: navLink-3;
+}
+
+::view-transition-group(activeNavTab) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
 
 .nav-list li.active::before,
@@ -77,5 +96,8 @@ nav {
 
 .nav-list a {
   color: white;
+  display: block;
   text-decoration: none;
+  position: relative;
+  z-index: 10;
 }
