@@ -1,6 +1,6 @@
 :root {
   --body-bg: #123;
-  --nav-bg: rgb(69, 92, 115);
+  --nav-bg: #234;
 }
 
 * {
@@ -44,6 +44,9 @@ nav {
   padding: 1rem 2rem;
   margin-inline-start: 2rem;
   border-radius: 100vw 0 0 100vw;
+
+  /* prevent animation glitch on right side */
+  box-shadow: 2px 0 0 var(--body-bg);
 }
 
 .nav-list li.active {
@@ -66,7 +69,7 @@ nav {
 }
 
 ::view-transition-group(activeNavTab) {
-  animation-duration: 500ms;
+  animation-duration: 300ms;
   animation-timing-function: ease-in-out;
 }
 
