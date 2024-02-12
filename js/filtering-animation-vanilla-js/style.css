@@ -211,3 +211,14 @@ body {
   color: white;
   box-shadow: 0 0 0.5rem rgb(0 0 0 / 0.2);
 }
+
+/* ::view-transition-group(root) {
+  animation-duration: 2s;
+  mix-blend-mode: none;
+}
+
+::view-transition-old(root) {
+}
+
+::view-transition-new(root) {
+} */

@@ -2,6 +2,12 @@ const filterList = document.querySelector('.filter');
 const filterButtons = filterList.querySelectorAll('.filter-btn');
 const conferences = document.querySelectorAll('.conference');
 
+let conferenceIndex = 0;
+
+conferences.forEach((conference) => {
+  conference.style.viewTransitionName = `conf-${++conferenceIndex}`;
+});
+
 filterButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
     const filter = e.target.getAttribute('data-filter');
