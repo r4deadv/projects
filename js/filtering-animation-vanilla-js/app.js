@@ -4,10 +4,12 @@ const conferences = document.querySelectorAll('.conference');
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
+    const filter = e.target.getAttribute('data-filter');
+
     // change the active button
     updateActiveButton(e.target);
     // filter the list
-    // filterEvents();
+    filterConf(filter);
   });
 });
 
@@ -18,4 +20,20 @@ function updateActiveButton(newButton) {
 
   // add the active class to our new button
   newButton.classList.add('active');
+}
+
+function filterConf(confFilter) {
+  // get each conference category
+  conferences.forEach((conf) => {
+    const confCategory = conf.getAttribute('data-category');
+
+    // check if that category matches the filter
+    if (confFilter === 'all' || confFilter === confCategory) {
+      // if it matches, show that conf
+      conf.removeAttribute('hidden');
+    } else {
+      // if not, hide that conf
+      conf.setAttribute('hidden', '');
+    }
+  });
 }
