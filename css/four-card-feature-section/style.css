@@ -40,6 +40,7 @@ html {
 
 body {
   margin: 0;
+  padding-block-end: 5rem;
 }
 
 h1,
@@ -64,7 +65,9 @@ header {
 }
 
 .layout-grid {
+  --gap: 2rem;
   display: flex;
+  gap: var(--gap);
 }
 
 .layout-grid > * {
@@ -72,5 +75,12 @@ header {
 }
 
 .col {
-  border: 3px solid blue;
+  display: grid;
+  align-content: center;
+  gap: var(--gap);
+}
+
+.card {
+  padding: 2rem;
+  background: #cdc8c8;
 }
