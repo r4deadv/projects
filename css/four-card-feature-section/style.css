@@ -19,3 +19,32 @@
   --clr-orange: hsl(34, 97%, 64%);
   --clr-blue: hsl(212, 86%, 64%);
 }
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-regular);
+  line-height: 1.7;
+  color: var(--clr-neutral-400);
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-neutral-900);
+  line-height: 1.1;
+}
