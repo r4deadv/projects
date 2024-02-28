@@ -54,7 +54,11 @@ h3 {
   margin-inline: auto;
 }
 
-.wrapper-narrow {
+.wrapper--narrow {
   max-width: 550px;
-  margin-inline: auto;
+}
+
+header {
+  text-align: center;
+  margin-block: 6rem;
 }
