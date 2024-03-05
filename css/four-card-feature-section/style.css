@@ -94,6 +94,19 @@ header > p {
     '.   three .'
     ;
   }
+
+  .layout-grid > :nth-child(1) {
+    grid-area: one;
+  }
+  .layout-grid > :nth-child(2) {
+    grid-area: two;
+  }
+  .layout-grid > :nth-child(3) {
+    grid-area: three;
+  }
+  .layout-grid > :nth-child(4) {
+    grid-area: four;
+  }
 }
 
 .layout-grid > * {
@@ -108,18 +121,7 @@ header > p {
   box-shadow: 0 1rem 1.5rem -0.5rem rgba(0, 50, 100, 0.15);
 }
 
-.layout-grid > :nth-child(1) {
-  grid-area: one;
-}
-.layout-grid > :nth-child(2) {
-  grid-area: two;
-}
-.layout-grid > :nth-child(3) {
-  grid-area: three;
-}
-.layout-grid > :nth-child(4) {
-  grid-area: four;
-}
+
 
 .card__title {
   font-size: var(--fs-600);
