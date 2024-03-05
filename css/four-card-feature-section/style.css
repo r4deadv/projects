@@ -81,6 +81,27 @@ header {
 }
 
 .card {
+  --br: 0.325rem;
   padding: 2rem;
-  background: #cdc8c8;
+  border-top: var(--br) solid;
+  border-radius: var(--br);
+  box-shadow: 0 1rem 1.5rem -0.5rem rgba(0, 50, 100, 0.15);
+}
+
+.card__title {
+  font-size: var(--fs-600);
+  margin: 0;
+}
+
+.border-cyan {
+  border-color: var(--clr-cyan);
+}
+.border-red {
+  border-color: var(--clr-red);
+}
+.border-orange {
+  border-color: var(--clr-orange);
+}
+.border-blue {
+  border-color: var(--clr-blue);
 }
