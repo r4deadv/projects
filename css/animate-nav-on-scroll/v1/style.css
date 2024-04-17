@@ -19,7 +19,12 @@ header {
     position: sticky;
     z-index: 1000;
     top: 0;
-
+    @supports (animation-timeline: view()) {
+        animation: stickyNav linear forwards;
+        animation-timeline: view();
+        animation-range-start: calc(100vh + var(--_animationStartsAfter));
+        animation-range-end: calc(100vh + var(--_animationStartsAfter) + var(--_animationDistance));
+    }
 
     .logo {
         fill: currentColor;
@@ -49,7 +54,13 @@ header {
     }
 }
 
-
+@keyframes stickyNav {
+    100% {
+        color: var(--_textColorEnd);
+        background-color: var(--_surfaceColorEnd);
+        box-shadow: 0 0 0.75rem hsl(0, 0%, 0% / 0.3);
+    }
+}
 
 
 
