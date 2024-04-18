@@ -2,9 +2,11 @@ header {
     --_animationStartsAfter: 50vh;
     --_animationDistance: 120px;
     --_surfaceColorStart: hsl(0 10% 5%);
-    --_surfaceColorEnd: hsl(0 50% 100%);
+    --_surfaceColorEnd: hsl(0 50% 90% / 0.05);
     --_textColorStart: hsl(0 10% 90%);
-    --_textColorEnd: hsl(0 10% 10%);
+    --_textColorEnd: hsl(0 10% 90%);
+
+    --_logoAfterAnimation: none;
     
     padding: 1rem 3rem;
     margin-inline: auto;
@@ -12,23 +14,29 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: var(--_headerWidth, auto);
+    border-radius: 100vw;
 
     color: var(--_textColorStart);
     background-color: var(--_surfaceColorStart);
 
     position: sticky;
     z-index: 1000;
-    top: 0;
+    top: -5rem;
+    animation: stickyNav linear forwards;
+
     @supports (animation-timeline: view()) {
-        animation: stickyNav linear forwards;
-        animation-timeline: view();
-        animation-range-start: calc(100vh + var(--_animationStartsAfter));
-        animation-range-end: calc(100vh + var(--_animationStartsAfter) + var(--_animationDistance));
+      backdrop-filter: blur(0.15rem);
+
+      animation-timeline: view();
+      animation-range-start: calc(100vh + var(--_animationStartsAfter));
+      animation-range-end: calc(100vh + var(--_animationStartsAfter) + var(--_animationDistance));
     }
 
     .logo {
-        fill: currentColor;
-        height: 3rem;
+      display: var(--_logoDisplay, block);
+      fill: currentColor;
+      height: 3rem;
     }
 
     ul {
@@ -55,10 +63,19 @@ header {
 }
 
 @keyframes stickyNav {
+
+    0%, 100% {
+      --_headerWidth: fit-content;
+      --_logoDisplay: var(--_logoAfterAnimation);
+    }
+
     100% {
-        color: var(--_textColorEnd);
-        background-color: var(--_surfaceColorEnd);
-        box-shadow: 0 0 0.75rem hsl(0, 0%, 0% / 0.3);
+      top: 1rem;
+      width: fit-content;
+      color: var(--_textColorEnd);
+      background-color: var(--_surfaceColorEnd);
+      box-shadow: inset 0 0 0.5rem hsl(0 0% 100% / 0.1),
+      0 0 0.75rem hsl(0 0% 0% / 0.3);
     }
 }
 
@@ -106,7 +123,7 @@ header {
       --clr-neutral-100: hsl(219, 15%, 5%);
     }
 
-    /* @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
         :root {
           --clr-primary-300: hsl(219, 76%, 75%);
           --clr-primary-400: hsl(219, 76%, 50%);
@@ -134,7 +151,7 @@ header {
           --clr-neutral-700: hsl(219, 15%, 15%);
           --clr-neutral-900: hsl(219, 15%, 5%);
         }
-      } */
+      }
 
       *,
       *::before,
@@ -142,9 +159,9 @@ header {
         box-sizing: border-box;
       }
 
-      /* html {
+      html {
         color-scheme: dark;
-      } */
+      }
 
       body {
         margin: 0;

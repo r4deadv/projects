@@ -19,8 +19,9 @@ header {
     position: sticky;
     z-index: 1000;
     top: 0;
+    animation: stickyNav linear forwards;
+    
     @supports (animation-timeline: view()) {
-        animation: stickyNav linear forwards;
         animation-timeline: view();
         animation-range-start: calc(100vh + var(--_animationStartsAfter));
         animation-range-end: calc(100vh + var(--_animationStartsAfter) + var(--_animationDistance));
