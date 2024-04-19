@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Circular Progress Bar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <h1>Front-End challenge: Progress Indicator</h1>
+<p>My solution to the <a href="https://piccalil.li/blog/challenge-009-progress-indicator/">progress indicator challenge</a>, as part of the <a href="https://piccalil.li/category/front-end-challenges-club/">Front-End Challenges Club on Piccalilli</a>.</p>
+<!-- NOTES:
+     - styling <progress> is possible, but takes a lot of extra work with annoying prefixed stuff
+       so will be using role="progressbar" and other aria features. I *think* this is okay 😅.
+     - Those attributes are all added via JS, this has the added benefit that it's only a
+       progress bar if JS is enabled.
+     - I think this makes the most sense, since we can't really track progress of an action 
+       if there is no JS.
+     - Maybe it's better to have a progress with an indeterminate value though? But I'm making the
+       assumption that it's the progress of an action a user is taking, in which case, it doesn't
+       make sense to have a progressbar if there's no JS, since we can't keep track then. 
+     - Further, maybe it's best to simply `display: none` the entire thing in that case, but that
+       would be very much context dependent.
+-->
+<div class='progressbar'>
+  <span>This <em>really awesome feature</em> requires JS 😢</span>
+</div>
+
+<div class="testing-ground">
+  <h2>Testing ground</h2>
+  <button data-progress="0">0%</button>
+  <button data-progress="25">25%</button>
+  <button data-progress="57">57%</button>
+  <button data-progress="82">82%</button>
+  <button data-progress="100">100%</button>
+  <button data-progress="fake-upload">Simulate a thing that takes a long time to do</button>
+</div>
+</body>
+</html>

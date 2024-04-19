@@ -1,0 +1,101 @@
+[role="progressbar"] {
+
+    --size: 132px;
+    --bar-width: 20px;
+
+    font-size: 2rem;;
+    width: var(--size);
+    aspect-ratio: 1 / 1;
+
+    background: conic-gradient(
+        var(--color-dark) var(--progress, 0),
+        var(--color-dark-glare) 0%
+    );
+    margin: 2rem auto;
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    &::after {
+        content: attr(aria-valuenow) "%";
+        background: white;
+        border-radius: inherit;
+        width: calc(100% - (var(--bar-width)));
+        aspect-ratio: 1 / 1;
+
+        display: grid;
+        place-items: center;
+    }
+
+    span {
+        display: none;
+    }
+}
+
+/* if js is disabled */
+.progressbar:not([role="progressbar"]) {
+    color: red;
+}
+
+@layer general-styling-and-whatnot {
+    :root {
+        --font-base: "Space Mono", monospace;
+        --color-dark: #1f1a38;
+        --color-dark-glare: #989ea9;
+        --color-success: #76f7bf;
+        --color-success-dark: #2d7a59;
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-base);
+            color: var(--color-dark);
+            width: min(100% - 3rem, 40ch);
+            margin-inline: auto;
+            margin-block: 3rem;
+        }
+
+        a {
+            color: var(--color-dark);
+
+            &:is(:hover, :focus) {
+                color: var(--color-success-dark);
+            }
+        }
+
+        .testing-ground {
+            color: var(--color-success);
+            font-weight: bold;
+            background: var(--color-dark);
+            border: 5px solid var(--color-dark-glare);
+            padding: 1rem;
+            margin-block: 3rem;
+
+            display: grid;
+            gap: 1rem;
+        }
+
+        .testing-ground button {
+            cursor: pointer;
+            font: inherit;
+            background: white;
+            color: var(--color-dark);
+            border: 0;
+            padding: 0.5rem;
+
+            &:is(:hover, :focus-visible) {
+                background: var(--color-success);
+            }
+
+            &:is(:focus-visible) {
+                outline: 5px solid var(--color-dark-glare);
+            }
+        }
+
+    }
+}
