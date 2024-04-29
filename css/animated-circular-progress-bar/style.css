@@ -1,3 +1,9 @@
+@property --progress {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+
 [role="progressbar"] {
 
     --size: 132px;
@@ -7,7 +13,7 @@
     width: var(--size);
     aspect-ratio: 1 / 1;
 
-    background: conic-gradient(
+    background-image: conic-gradient(
         var(--color-dark) var(--progress, 0),
         var(--color-dark-glare) 0%
     );
@@ -16,6 +22,8 @@
 
     display: grid;
     place-items: center;
+
+    transition: --progress 500ms linear;
 
     &::after {
         content: attr(aria-valuenow) "%";
@@ -32,6 +40,19 @@
         display: none;
     }
 }
+
+[role="progressbar"][aria-valuenow="100"]::after {
+    animation: progressComplete 0s forwards;
+    animation-delay: 800ms;
+}
+
+@keyframes progressComplete {
+    to {
+        content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iODUiIHZpZXdCb3g9IjUgMzAgNzUgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0zNS40MjM3IDUzLjczMjdMNjcuOTc4NyAyMS4xNzc3TDcyLjk4OTUgMjYuMTg0MkwzNS40MTk1IDYzLjc1TDEyLjg4NiA0MS4yMTIyTDE3Ljg5MjUgMzYuMjAxNUwzNS40MjM3IDUzLjczMjdaIiBmaWxsPSIjMWYxYTM4Ii8+Cjwvc3ZnPgo=");;
+        background-color: var(--color-success);
+    }
+}
+
 
 /* if js is disabled */
 .progressbar:not([role="progressbar"]) {
