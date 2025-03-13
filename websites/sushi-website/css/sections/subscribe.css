@@ -13,7 +13,7 @@
 
 .subscription h2 {
   font-size: 88px;
-  font-family: var(--plafair-display);
+  font-family: var(--playfair-display);
   font-weight: 600;
   line-height: 123px;
 
@@ -78,6 +78,7 @@
 
   background-color: var(--black-400);
   border-radius: 46px;
+  border: none;
   outline: none;
 
   cursor: pointer;
