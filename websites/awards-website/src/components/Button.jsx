@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ title, id, rightIcon, leftIcon, containerClass }) => {
+const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
   return (
     <button
       id={id}

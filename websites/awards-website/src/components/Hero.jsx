@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import Button from "./Button";
-import { TiLocationArrow } from "react-icons/ti";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import { TiLocationArrow } from "react-icons/ti";
+import React, { useEffect, useRef, useState } from "react";
+
+import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,10 +12,10 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
 
-  const totalVideos = 4;
+  const totalVideos = 3;
   const nextVideoRef = useRef(null);
 
   const handleVideoLoad = () => {
@@ -32,9 +32,9 @@ const Hero = () => {
 
   useEffect(() => {
     if (loadedVideos === totalVideos - 1) {
-      setIsLoading(false);
+      setLoading(false);
     }
-  });
+  }, [loadedVideos]);
 
   useGSAP(
     () => {
@@ -85,7 +85,7 @@ const Hero = () => {
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
-      {isLoading && (
+      {loading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
           <div className="three-body">
             <div className="three-body__dot"></div>
@@ -129,7 +129,7 @@ const Hero = () => {
             src={getVideoSrc(
               currentIndex === totalVideos - 1 ? 1 : currentIndex
             )}
-            // autoPlay
+            autoPlay
             loop
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
