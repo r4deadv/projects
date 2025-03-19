@@ -21,5 +21,4 @@ const RoundedCorners = () => {
     </svg>
   );
 };
-
 export default RoundedCorners;
